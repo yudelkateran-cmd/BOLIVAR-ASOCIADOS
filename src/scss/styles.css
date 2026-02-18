@@ -1,28 +1,25 @@
-/*# sourceMappingURL=styles.css.map */
-.nav {
-  --bs-nav-link-padding-x: 1rem;
-  --bs-nav-link-padding-y: 0.5rem;
-  --bs-nav-link-font-weight: ;
-  --bs-nav-link-color: var(--bs-link-color);
-  --bs-nav-link-hover-color: var(--bs-link-hover-color);
-  --bs-nav-link-disabled-color: var(--bs-secondary-color);
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+/* src/styles.css - Versión Limpia */
+
+/* 1. Estilos Base necesarios para que Bootstrap funcione bien */
+body {
+  margin: 0;
+  padding: 0;
+  /* Quitamos el 'display: flex' que traía Vite por defecto */
+  display: block; 
+  width: 100%;
+  overflow-x: hidden; /* Evita scroll horizontal innecesario */
 }
 
-.nav-link:hover, .nav-link:focus {
-  color: var(--bs-nav-link-hover-color);
-}
-.nav-link:focus-visible {
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-}
-
+/* 2. Tus variables personalizadas */
 :root {
   --bs-tertiary-bg-rgb: 255, 0, 0;
+}
+
+/* 3. Tus clases personalizadas */
+
+/* Color personalizado para Ingeniería/Proyectos (lo tenías en el HTML, mejor aquí) */
+.bg-ingenieria {
+  background: linear-gradient(to right, #1a6b8e, #203a43, #183541) !important;
 }
 
 .nav-item--inferior {
@@ -32,104 +29,65 @@
 /* Estilos para los iconos del footer */
 .redes-sociales {
   display: flex;
-  gap: 15px; /* Espacio entre cada icono */
-  align-items: right;
-  margin-right: 0;
+  gap: 15px;
+  align-items: center;
   color: black;
 }
 
 .icono-social i {
   color: rgb(50, 27, 27);
-  font-size: 20px; /* Tamaño del icono */
-  text-decoration: none; /* Quita la raya de subrayado del link */
-  transition: color 0.3s ease; /* Suaviza el cambio de color */
-  align-items: right;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Efecto al pasar el mouse por encima */
 .icono-social:hover {
   color: #edefe7;
 }
 
+/* Estilos de Popover (si los usas) */
 .popover-header {
-  background-color: #147045; /* Verde corporativo */
-  color: white; /* Texto blanco */
+  background-color: #147045;
+  color: white;
   font-weight: bold;
 }
 
 .popover-body {
-  color: #333; /* Texto oscuro para la información */
+  color: #333;
   font-size: 0.95rem;
 }
 
+/* Efecto vidrio (Glassmorphism) */
 .fondo-texto {
   background: rgba(216, 233, 240, 0.3);
-  /* 2. EL TRUCO: Esto desenfoca lo que pase por detrás */
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px); /* Para que funcione en Safari/iPhone */
-  /* 3. Borde sutil abajo para delimitar el vidrio */
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  /* 4. Sombra suave */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}/*# sourceMappingURL=style.css.map */
-
-.carousel-caption {
-  position: absolute;
-  right: 15%;
-  bottom: 1.25rem;
-  left: 15%;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  color: var(--bs-carousel-caption-color);
-  text-align: center;
 }
-
-:root,
-[data-bs-theme=light] {
-  --bs-carousel-indicator-active-bg: #fff;
-  --bs-carousel-caption-color: #fff;
-  --bs-carousel-control-icon-filter: ;
+.text-centers{
+    color: rgb(7, 71, 43);
+    font-family: Cambria;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px #7dc2e0;
+    text-align: center;
 }
-
-[data-bs-theme=dark] {
-  --bs-carousel-indicator-active-bg: #000;
-  --bs-carousel-caption-color: #000;
-  --bs-carousel-control-icon-filter: invert(1) grayscale(100);
+.form-label{
+    font-weight: bold;
 }
-.carousel-indicators [data-bs-target] {
-  box-sizing: content-box;
-  flex: 0 1 auto;
-  width: 30px;
-  height: 3px;
-  padding: 0;
-  margin-right: 3px;
-  margin-left: 3px;
-  text-indent: -999px;
-  cursor: pointer;
-  background-color: var(--bs-carousel-indicator-active-bg);
-  background-clip: padding-box;
-  border: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  opacity: 0.5;
-  transition: opacity 0.6s ease;
+.bg-dark{
+ background: linear-gradient(to right, #1a6b8e, #203a43, #183541) !important;   
+font-family: Georgia;
+font-size: small;
 }
-.carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15%;
-  padding: 0;
-  color: yellow;
-  text-align: center;
-  background: none;
-  filter: var(--bs-carousel-control-icon-filter);
-  border: 0;
-  opacity: 0.5;
-  transition: opacity 0.15s ease;
+.carousel-caption{
+    background: rgba(50, 50, 50, 0.2); /* Negro al 40% */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 20px;
+    color: white;
+    align-items: center;
+    width: 70%;
 }

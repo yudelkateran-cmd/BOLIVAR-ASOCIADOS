@@ -1,7 +1,20 @@
-import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
+// 1. Importar el CSS de Bootstrap (esto arregla el diseño visual)
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import { cargarHeader } from './js/header.js';
+// 2. Importar el JS de Bootstrap (esto hace que funcionen el menú móvil y el carrusel)
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+
+// 3. Importar tus estilos personalizados (opcional, si usas Sass o CSS extra)
+import './scss/styles.css'
+
+import { cargarFooter } from './js/footer.js';
+
+cargarHeader();
+cargarFooter(); // Ejecutamos la función
 
 document.querySelector('#app').innerHTML = `
   <div>
