@@ -1,0 +1,135 @@
+/*# sourceMappingURL=styles.css.map */
+.nav {
+  --bs-nav-link-padding-x: 1rem;
+  --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-font-weight: ;
+  --bs-nav-link-color: var(--bs-link-color);
+  --bs-nav-link-hover-color: var(--bs-link-hover-color);
+  --bs-nav-link-disabled-color: var(--bs-secondary-color);
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: var(--bs-nav-link-hover-color);
+}
+.nav-link:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+:root {
+  --bs-tertiary-bg-rgb: 255, 0, 0;
+}
+
+.nav-item--inferior {
+  color: greenyellow !important;
+}
+
+/* Estilos para los iconos del footer */
+.redes-sociales {
+  display: flex;
+  gap: 15px; /* Espacio entre cada icono */
+  align-items: right;
+  margin-right: 0;
+  color: black;
+}
+
+.icono-social i {
+  color: rgb(50, 27, 27);
+  font-size: 20px; /* Tamaño del icono */
+  text-decoration: none; /* Quita la raya de subrayado del link */
+  transition: color 0.3s ease; /* Suaviza el cambio de color */
+  align-items: right;
+}
+
+/* Efecto al pasar el mouse por encima */
+.icono-social:hover {
+  color: #edefe7;
+}
+
+.popover-header {
+  background-color: #147045; /* Verde corporativo */
+  color: white; /* Texto blanco */
+  font-weight: bold;
+}
+
+.popover-body {
+  color: #333; /* Texto oscuro para la información */
+  font-size: 0.95rem;
+}
+
+.fondo-texto {
+  background: rgba(216, 233, 240, 0.3);
+  /* 2. EL TRUCO: Esto desenfoca lo que pase por detrás */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* Para que funcione en Safari/iPhone */
+  /* 3. Borde sutil abajo para delimitar el vidrio */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* 4. Sombra suave */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}/*# sourceMappingURL=style.css.map */
+
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 1.25rem;
+  left: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: var(--bs-carousel-caption-color);
+  text-align: center;
+}
+
+:root,
+[data-bs-theme=light] {
+  --bs-carousel-indicator-active-bg: #fff;
+  --bs-carousel-caption-color: #fff;
+  --bs-carousel-control-icon-filter: ;
+}
+
+[data-bs-theme=dark] {
+  --bs-carousel-indicator-active-bg: #000;
+  --bs-carousel-caption-color: #000;
+  --bs-carousel-control-icon-filter: invert(1) grayscale(100);
+}
+.carousel-indicators [data-bs-target] {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: 30px;
+  height: 3px;
+  padding: 0;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: var(--bs-carousel-indicator-active-bg);
+  background-clip: padding-box;
+  border: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  opacity: 0.5;
+  transition: opacity 0.6s ease;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  padding: 0;
+  color: yellow;
+  text-align: center;
+  background: none;
+  filter: var(--bs-carousel-control-icon-filter);
+  border: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
