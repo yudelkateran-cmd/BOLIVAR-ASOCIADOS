@@ -1,14 +1,15 @@
-// 1. Importaciones principales de Vue
-import { createApp } from 'vue';
-import App from './App.vue';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router' // <-- 1. Importas el archivo que me acabas de mostrar
 
-// 2. Importaciones de estilos y Bootstrap (dejamos las que tenías)
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './scss/styles.css';
+// Importaciones de estilos (ajusta las rutas si es necesario)
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import './scss/styles.css' 
 
+const app = createApp(App)
 
+app.use(router) // <-- 2. Le dices a la aplicación que use el mapa de rutas
 
-// 3. Montar la aplicación Vue
-createApp(App).mount('#app');
+app.mount('#app')

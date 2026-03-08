@@ -24,6 +24,14 @@
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "sass": "^1.97.3",
-    "vue": "^3.5.29"
-  }
+    "vue": "^3.5.29",
+    "vue-router": "^4.6.4"
+    
+  },
+
+  "eslintConfig": {
+      "rules": {
+        "vue/multi-word-component-names": "off"
+      }
+    }
 }
