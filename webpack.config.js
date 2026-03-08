@@ -1,68 +1,52 @@
-//require('path'): permitir importar módulos, json, archivos
 const path = require('path');
-//ahora vincularemos html con webpack
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { use } = require('react');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
-    output: {
-        filename: 'bundle.js', //constructor de la aplicacion compilada
-        //resolve toma cualquier directorio y lo compila en la carpeta dist
-        path:path.resolve(__dirname,'dist'),
-        clean:true //limpiar dist con cada cambio botando lo sucio
-    },
-    module:
-    {
-        /*cargar en los loaders->le ayudan a webpack a entender
-        archivos que no sean js ni json (estos ultimos los comprende
-        por defecto)*/
-        rules:[
-            {
-                /*
-                El camino de test:
-                1)//: apertura de una expresión regular
-                2)\. : acepta cualquier caracter
-                3) scss$: que solo aceptará archivos que terminen en scss
-                */
-                test: /\.scss$/,
-                /*
-                style-loader: nos permitirá cargar(inyectar) css en HTML
-                css-loader: interpretar @import y url dentro del CSS
-                postcss-loader: se permitirán agregar los prefijos al CSS
-                sass-loader: permite traducir scss a css normal
+  // Modo de desarrollo para facilitar la lectura de errores
+  mode: 'development',
 
+  // 1. PUNTO DE ENTRADA: El archivo principal donde arranca tu app Vue
+  entry: './src/main.js',
 
-                */
-                use: ['style-loader','css-loader','postcss-loader','sass-loader']
+  // 2. SALIDA: Dónde Webpack dejará el código ya compilado y listo para el navegador
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js', // Este es el archivo que conectarás a tu HTML
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  
+  // AGREGA ESTE BLOQUE NUEVO:
+  devServer: {
+    static: './', // Esto le dice que lea el index.html de tu carpeta principal
+  },
 
-
-
-            },
-            {
-                /* permitirá cargar un archivo html en webpack */
-                test:/\.html$/,
-                use:['html-loader']
-
-
-            }
+  // 3. REGLAS: Cómo debe Webpack traducir cada tipo de archivo
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
         ]
+      }
+    ]
+  },
 
-    },
+  // 4. PLUGINS: Herramientas extra (el de Vue es obligatorio)
+  plugins: [
+    new VueLoaderPlugin()
+  ],
 
-    plugins:[
-
-        new HtmlWebpackPlugin({template:'.src/index.html'})
-
-    ],
-
-    devServer:{
-        /*hot(Hot Module Replacement): permitirá darle el poder al
-        servidor para que reemplace módulos en caliente; es decir,
-        que se modifica un archivo , solo recarga lo que modificó*/
-        hot:true,
-        port:3000
-    }
-
+  // 5. RESOLUCIÓN: Permite importar archivos sin tener que escribir su extensión (.js o .vue)
+  resolve: {
+    extensions: ['.js', '.vue', '.json']
+  }
 };

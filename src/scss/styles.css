@@ -1,93 +1,259 @@
-/* src/styles.css - Versión Limpia */
+/* src/styles.css - Versión de Ingeniería Premium */
 
-/* 1. Estilos Base necesarios para que Bootstrap funcione bien */
+/* 1. Base y Tipografía */
 body {
   margin: 0;
   padding: 0;
-  /* Quitamos el 'display: flex' que traía Vite por defecto */
   display: block; 
   width: 100%;
-  overflow-x: hidden; /* Evita scroll horizontal innecesario */
+  overflow-x: hidden;
+  /* Fuente más limpia y moderna para el cuerpo */
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  color: #2c3e50;
+  background-color: #ffffff;
 }
 
-/* 2. Tus variables personalizadas */
+/* 2. Paleta de Colores de Alta Gama */
 :root {
-  --bs-tertiary-bg-rgb: 255, 0, 0;
+  --azul-profundo: #0f2027; /* Casi negro para elegancia */
+  --azul-medio: #203a43;
+  --acento-ingenieria: #2c5364;
+  --blanco-vidrio: rgba(255, 255, 255, 0.05);
 }
 
-/* 3. Tus clases personalizadas */
-
-/* Color personalizado para Ingeniería/Proyectos (lo tenías en el HTML, mejor aquí) */
+/* 3. Navegación Elevada */
 .bg-ingenieria {
-  background: linear-gradient(to right, #1a6b8e, #203a43, #183541) !important;
+  /* Gradiente más oscuro y sutil */
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 0; /* Más aire al menú */
 }
 
-.nav-item--inferior {
-  color: greenyellow !important;
+/* 4. Carrusel Moderno (Glassmorphism Pulido) */
+.carousel-caption {
+  background: rgba(15, 32, 39, 0.6); /* Más oscuro para contraste */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px; /* Bordes menos redondeados son más profesionales */
+  padding: 30px;
+  width: 60%;
+  left: 20%;
+  bottom: 15%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* Estilos para los iconos del footer */
+/* Títulos del Carrusel */
+.carousel-item h5 {
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+/* 5. Secciones de Texto (Elegancia Visual) */
+.text-centers {
+  color: #1a3c34;
+  font-family: 'Georgia', serif; /* Serif para autoridad */
+  font-size: 3rem;
+  font-weight: normal;
+  text-shadow: none; /* Quitamos sombras para un look más limpio */
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+}
+
+/* 6. Footer Sofisticado (Gris Grafito/Azul Noche) */
+.bg-dark {
+  background: #0b1418 !important; /* Casi negro, muy elegante */
+  color: #a0aec0;
+  font-family: 'Inter', sans-serif;
+  padding: 60px 0 30px;
+}
+
+.bg-dark h5, .bg-dark h6 {
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+/* 7. Redes Sociales Minimalistas */
 .redes-sociales {
   display: flex;
-  gap: 15px;
-  align-items: center;
-  color: black;
+  gap: 20px;
 }
 
 .icono-social i {
-  color: rgb(50, 27, 27);
-  font-size: 20px;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  color: #ffffff;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  transition: all 0.4s ease;
 }
 
-.icono-social:hover {
-  color: #edefe7;
+.icono-social i:hover {
+  opacity: 1;
+  transform: translateY(-3px); /* Pequeño salto elegante */
+  color: #4facfe;
 }
 
-/* Estilos de Popover (si los usas) */
-.popover-header {
-  background-color: #147045;
-  color: white;
-  font-weight: bold;
+/* 8. Botones Premium */
+.btn-dark {
+  background-color: #0f2027;
+  border: none;
+  padding: 12px 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
 }
 
-.popover-body {
-  color: #333;
-  font-size: 0.95rem;
+.btn-dark:hover {
+  background-color: #203a43;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+/* Título principal del carrusel */
+.display-title {
+  font-family: 'Georgia', serif;
+  font-weight: 300;
+  letter-spacing: 6px; /* Aquí está el secreto de la elegancia */
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
-/* Efecto vidrio (Glassmorphism) */
-.fondo-texto {
-  background: rgba(216, 233, 240, 0.3);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Subtítulo más ligero */
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 80%;
+  margin: 0 auto;
 }
-.text-centers{
-    color: rgb(7, 71, 43);
-    font-family: Cambria;
-    font-size: 50px;
-    text-shadow: 2px 2px 4px #7dc2e0;
-    text-align: center;
+
+/* Ajuste de altura para que el carrusel no sea infinito */
+.h-v-80 {
+  height: 85vh; /* Ocupa el 85% de la altura de la pantalla */
+  object-fit: cover; /* Evita que la imagen se estire feo */
 }
-.form-label{
-    font-weight: bold;
+
+/* Refinamiento del cuadro de texto */
+.glass-caption {
+  background: rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 0px; /* Los bordes rectos se ven más arquitectónicos */
+  border-left: 4px solid #4facfe; /* Un detalle de color de marca */
+  padding: 40px !important;
+  bottom: 20% !important;
 }
-.bg-dark{
- background: linear-gradient(to right, #1a6b8e, #203a43, #183541) !important;   
-font-family: Georgia;
-font-size: small;
+/* Sección Principal del CTA */
+.cta-premium {
+    position: relative;
+    padding: 100px 0;
+    background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop'); /* Una imagen de planos o estructuras */
+    background-attachment: fixed; /* Efecto Parallax muy elegante */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    overflow: hidden;
 }
-.carousel-caption{
-    background: rgba(50, 50, 50, 0.2); /* Negro al 40% */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 25px;
-    padding: 20px;
-    color: white;
-    align-items: center;
-    width: 70%;
+
+/* Capa oscura para que el texto resalte */
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 32, 39, 0.9) 0%, rgba(32, 58, 67, 0.8) 100%);
+    z-index: 1;
 }
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Etiqueta superior pequeña */
+.cta-tagline {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.75rem;
+    color: #4facfe; /* Tu color de acento */
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Título con autoridad */
+.cta-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+/* Botón Minimalista y Potente */
+.btn-premium {
+    display: inline-block;
+    padding: 18px 45px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-premium:hover {
+    background-color: #ffffff;
+    color: #0f2027;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    transform: translateY(-5px);
+}
+.carousel-item {
+  transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1); /* Hace el movimiento más suave y lujoso */
+}
+/* Espaciado elegante entre secciones */
+.py-120 { padding: 120px 0; }
+
+/* Estado inicial (Oculto) */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1s ease-out;
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 1s ease-out;
+}
+
+/* Estado Activo (Cuando el usuario llega a la sección) */
+.reveal-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Detalles estéticos adicionales */
+.rounded-custom { border-radius: 4px; } /* Menos redondeado = más técnico */
+.shadow-premium { box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+.lead-custom { font-size: 1.1rem; line-height: 1.8; }
